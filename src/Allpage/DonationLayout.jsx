@@ -12,8 +12,8 @@ const DonationLayout = ({ card }) => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold text-xl ">{title}</h2>
-                    <p className='text-lg font-bold '>{description}</p>
-                    <p className='text-lg font-bold'>{division}</p>
+                    <div className='h-14 py-4 mb-4'><p className='text-lg  '>{description}</p></div>
+                    <p className='text-lg font-bold my-4'>{division}</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary btn-outline">Donate Now </button>
                     </div>

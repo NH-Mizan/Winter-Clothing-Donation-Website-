@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     const images = [
@@ -55,7 +56,7 @@ const Banner = () => {
                 <h2 className="text-6xl font-bold text-green-500  py-8"> Spreading Kindness in the Cold</h2>
                 <p className="font-bold text-white text-xl mx-16 ,  py-6 rounded-2xl  ">Winter Warmth is a heartfelt initiative aimed at providing winter clothing to those in need across Bangladesh. By donating essentials like blankets and jackets, you can help vulnerable communities stay warm and safe during harsh winters. Together, let’s bring comfort, hope, and warmth to countless lives this season.</p>
 
-                <button className="btn btn-secondary px-12 font-bold">Donate Now </button>
+                <Link to={'donation'} className="btn btn-secondary px-12 font-bold">Donate Now </Link>
                 </div>
                 <button
                     className="btn btn-circle"

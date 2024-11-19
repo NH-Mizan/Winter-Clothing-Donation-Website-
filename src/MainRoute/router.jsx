@@ -12,6 +12,7 @@ import Login from "../Allpage/Login.jsx";
 import Donation from "../Allpage/Donation.jsx";
 import Register from "../Allpage/Register.jsx";
 import ErrorPage from "../Components/ErrorPage.jsx";
+import HowToHelp from "../Components/HowToHelp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomeLayout></HomeLayout>,
-        loader: () => fetch('devision.json')
+        
 
 
 
@@ -29,8 +30,13 @@ const router = createBrowserRouter([
       {
         path: '/donation',
         element: <Donation></Donation>,
-        loader: () =>fetch('devition.json')
+        loader: () => fetch('devision.json')
      
+      },
+      {
+        path:'/help',
+        element:<HowToHelp></HowToHelp>,
+      
       },
       {
         path: '/login',
