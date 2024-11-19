@@ -14,6 +14,7 @@ import Register from "../Allpage/Register.jsx";
 import ErrorPage from "../Components/ErrorPage.jsx";
 import HowToHelp from "../Components/HowToHelp.jsx";
 import DonateDetails from "../PrivatePages/DonateDetails.jsx";
+import PrivateRoute from "../PrivatePages/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element: <DonateDetails></DonateDetails>,
+        element: (<PrivateRoute>
+          <DonateDetails></DonateDetails>
+        </PrivateRoute>),
         loader: async ({ params }) => {
           const result = await fetch('/devision.json')
           const data = await result.json()
@@ -62,7 +65,7 @@ const router = createBrowserRouter([
 
       {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoute> <Dashboard></Dashboard></PrivateRoute>
       },
 
     ]

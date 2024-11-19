@@ -6,6 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+
     return (
         <div className="bg-lime-300 stiky top-0">
             <div className="navbar w-11/12 mx-auto itrms-center flex ">
@@ -63,14 +64,15 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <p className="font-bold mr-4">photo url {user && user.email} </p>
+                    <div className="font-bold mr-4 "> {user && <div ><img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                        {user.displayName}</div>} </div>
                     {
                         user && user?.email ? (
                             <button onClick={logOut} className="btn btn-neutral font-bold ">Log Out</button>
-                        ):(
+                        ) : (
                             <Link to={'/login'} className="btn btn-neutral font-bold ">Login</Link>
                         )
-                   }
+                    }
                 </div>
             </div>
 

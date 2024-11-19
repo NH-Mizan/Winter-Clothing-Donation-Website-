@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const HowToHelp = () => {
+    useEffect(()=>{
+        document.title= 'How to Help || Winter Warmth'
+    },[])
 
     
     return (

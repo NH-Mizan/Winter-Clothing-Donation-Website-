@@ -1,15 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
+    const { userLogin, setUser } = useContext(AuthContext)
+    const [error, setError] = useState({})
+    const location = useLocation();
+    const navigate = useNavigate()
     const handleLoginBtn = (e) => {
         e.preventDefault()
 
-    
-        const email = e.target.email.value
-        const password = e.target.password.value
-        console.log(email, password)
+
+        const form = new FormData(e.target)
+        const email = form.get("email")
+        const password = form.get("password")
+        userLogin(email, password)
+            .then(res => {
+                const user = res.user;
+                setUser(user)
+                navigate(location?.state ? location.state : "/")
+            })
+            .catch((erro) => {
+                setError({ ...error, login: erro.code })
+            });
     }
+
     return (
         <div>
             <div className="bg-base-200 min-h-screen flex justify-center items-center">
@@ -29,14 +44,21 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            {
+                                error.login && 
+                                    <label className="label text-red-500 font-bold">{error.login}</label>
+
+                                
+                            }
                             <label className="label">
+
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                    <button type='button' className='btn btn-primary btn-outline mt-4'>Google Reg.. Now </button>
+                        <button type='button' className='btn btn-primary btn-outline mt-4'>Google Reg.. Now </button>
                     </form>
 
                     <p className=" text-center"> Don’t have an account? <Link to={'/register'} className='text-red-500 font-bold'>Register Here </Link> </p>

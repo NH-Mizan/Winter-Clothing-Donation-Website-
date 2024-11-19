@@ -1,24 +1,51 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 
 const Register = () => {
-    const {createNewUser, setUser} = useContext(AuthContext)
+    const {createNewUser, setUser, updateUserDashboard} = useContext(AuthContext)
+    const [error, setError] = useState()
+    const navigate = useNavigate()
+    
+
     const handleRegisterBtn =(e)=>{
         e.preventDefault();
         const form = new FormData(e.target)
         const name = form.get("name")
-        const photourl = form.get("photourl")
+        const photourl = form.get("photo")
         const email = form.get("email")
         const password = form.get("password")
-        console.log(name,email,photourl,password)
+        if (!/[A-Z]/.test(password)) {
+            setError("Password must contain at least one uppercase letter.");
+            return
+          }
+          if (!/[a-z]/.test(password)) {
+            setError("Password must contain at least one lowercase letter.");
+            return
+          }
+          if (password.length < 6) {
+            setError("Password must be at least 6 characters long.");
+            return
+          }
+        
+    
 
         createNewUser(email, password)
         .then((res)=>{
             const user = res.user;
             setUser(user)
-            console.log(user)
+            updateUserDashboard({ displayName: name,photoURL: photourl}).then(()=>{
+                
+
+                navigate("/")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+              });
+
+          
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -32,6 +59,7 @@ const Register = () => {
 
                 <div className="card bg-base-100 w-full max-w-lg py-12 shrink-0 shadow-2xl">
                     <h2 className="text-3xl font-bold text-center ">Join Our Mission !!</h2>
+                    
                     <form onSubmit={handleRegisterBtn} className="card-body">
                      <label className="input input-bordered flex items-center gap-4">
                     <svg
@@ -53,7 +81,7 @@ const Register = () => {
                         <path
                             d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                     </svg>
-                    <input type="text" name='photourl' className="grow" placeholder="Photo URL" />
+                    <input type="text" name='photo' className="grow" placeholder="Photo URL" />
                 </label>
 
                 <label className="input input-bordered flex items-center gap-4">
@@ -83,6 +111,7 @@ const Register = () => {
                     </svg>
                     <input type="password" name='password' className="grow" />
                 </label>
+                <label className="label text-red-500 font-bold">{error}</label>
 
                 <button className='btn btn-info'>Submit Now </button>
                 

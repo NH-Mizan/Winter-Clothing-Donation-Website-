@@ -1,7 +1,10 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const DonateDetails = () => {
+    useEffect(()=>{
+        document.title= 'Dashboard || Winter Warmth'
+    },[])
     const singleData = useLoaderData()
     const { division, status, description,contactInfo,  image, title } = singleData
     return (
