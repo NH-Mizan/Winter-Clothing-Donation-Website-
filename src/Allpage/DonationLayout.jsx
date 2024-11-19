@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DonationLayout = ({ card }) => {
-    const { division, status, description, image, title } = card
+    const { division, id, description, image, title } = card
     return (
         <div className=' mx-auto  '>
             <div className="card bg-base-100 p-2 w-80 md:w-84 lg:w-[450px]  shadow-xl">
@@ -15,7 +16,7 @@ const DonationLayout = ({ card }) => {
                     <div className='h-14 py-4 mb-4'><p className='text-lg  '>{description}</p></div>
                     <p className='text-lg font-bold my-4'>{division}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary btn-outline">Donate Now </button>
+                       <Link to={`/details/${id}`}> <button className="btn btn-primary btn-outline">Donate Now </button></Link>
                     </div>
                 </div>
             </div>

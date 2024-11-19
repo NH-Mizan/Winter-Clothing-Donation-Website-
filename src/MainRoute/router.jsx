@@ -13,16 +13,17 @@ import Donation from "../Allpage/Donation.jsx";
 import Register from "../Allpage/Register.jsx";
 import ErrorPage from "../Components/ErrorPage.jsx";
 import HowToHelp from "../Components/HowToHelp.jsx";
+import DonateDetails from "../PrivatePages/DonateDetails.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
+    element:<MainLayout></MainLayout>,
     children: [
       {
         path: '/',
         element: <HomeLayout></HomeLayout>,
-        
+
 
 
 
@@ -31,12 +32,12 @@ const router = createBrowserRouter([
         path: '/donation',
         element: <Donation></Donation>,
         loader: () => fetch('devision.json')
-     
+
       },
       {
-        path:'/help',
-        element:<HowToHelp></HowToHelp>,
-      
+        path: '/help',
+        element: <HowToHelp></HowToHelp>,
+
       },
       {
         path: '/login',
@@ -47,22 +48,28 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>
 
-
-
-
-
+      },
+      {
+        path: '/details/:id',
+        element: <DonateDetails></DonateDetails>,
+        loader: async ({ params }) => {
+          const result = await fetch('/devision.json')
+          const data = await result.json()
+          const singleData = data.find(item => item.id == params.id)
+          return singleData
+        }
       },
 
       {
         path: '/dashboard',
         element: <Dashboard></Dashboard>
       },
-      
+
     ]
   },
   {
-    path:'*',
-    element:<ErrorPage></ErrorPage>
+    path: '*',
+    element: <ErrorPage></ErrorPage>
   }
 
 ]);

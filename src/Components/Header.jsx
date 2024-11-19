@@ -1,7 +1,11 @@
+
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
     return (
         <div className="bg-lime-300 stiky top-0">
             <div className="navbar w-11/12 mx-auto itrms-center flex ">
@@ -38,29 +42,35 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                    <img src="https://i.ibb.co.com/QKMf80s/images.png" alt=""  className="w-20 rounded-lg"/>
+                    <img src="https://i.ibb.co.com/QKMf80s/images.png" alt="" className="w-20 rounded-lg" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex gap-4 text-xl font-bold">
-            
+
                         <li>
-                                <NavLink to={'/'}> Home</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/donation'}>Donation Campaigns </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/help'}> How to Help</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard'}> Dashboard</NavLink>
-                            </li>
-                     
+                            <NavLink to={'/'}> Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/donation'}>Donation Campaigns </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/help'}> How to Help</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={'/dashboard'}> Dashboard</NavLink>
+                        </li>
+
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <p className="font-bold mr-4">photo url</p>
-                    <Link to={'/login'} className="btn btn-neutral font-bold ">Login</Link>
+                    <p className="font-bold mr-4">photo url {user && user.email} </p>
+                    {
+                        user && user?.email ? (
+                            <button onClick={logOut} className="btn btn-neutral font-bold ">Log Out</button>
+                        ):(
+                            <Link to={'/login'} className="btn btn-neutral font-bold ">Login</Link>
+                        )
+                   }
                 </div>
             </div>
 
