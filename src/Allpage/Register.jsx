@@ -58,6 +58,14 @@ const Register = () => {
             });
         toast.success('Thank you! .');
     }
+    const handleGooleSinInBtn = () => {
+        handleGooleSinIn()
+            .then((res) => {
+                setUser(res.user)
+                navigate('/')
+            })
+
+    }
     return (
         <div>
             <div className="bg-base-200 min-h-screen flex justify-center items-center">
@@ -76,7 +84,7 @@ const Register = () => {
                                 <path
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                             </svg>
-                            <input type="text" name='name' className="grow" placeholder="Username" />
+                            <input type="text" name='name' className="grow" placeholder="Username" required/>
                         </label>
                         <label className="input input-bordered flex items-center gap-4">
                             <svg
@@ -87,7 +95,7 @@ const Register = () => {
                                 <path
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                             </svg>
-                            <input type="text" name='photo' className="grow" placeholder="Photo URL" />
+                            <input type="text" name='photo' className="grow" placeholder="Photo URL" required />
                         </label>
 
                         <label className="input input-bordered flex items-center gap-4">
@@ -101,7 +109,7 @@ const Register = () => {
                                 <path
                                     d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                             </svg>
-                            <input type="email" name='email' className="grow" placeholder="Email" />
+                            <input type="email" name='email' className="grow" placeholder="Email" required/>
                         </label>
 
                         <div className="form-control relative">
@@ -119,7 +127,7 @@ const Register = () => {
 
                         <button className='btn btn-info'>Submit Now </button>
 
-                        <button type='button' onClick={handleGooleSinIn} className='btn btn-info btn-outline mt-4'><FcGoogle className='text-xl' /> Google Login Now </button>
+                        <button type='button' onClick={handleGooleSinInBtn} className='btn btn-info btn-outline mt-4'><FcGoogle className='text-xl' /> Google Login Now </button>
                     </form>
 
 

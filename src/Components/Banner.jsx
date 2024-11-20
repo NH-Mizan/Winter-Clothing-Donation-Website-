@@ -53,8 +53,8 @@ const Banner = () => {
                     ❮
                 </button>
                 <div className="text-center bg-[#f189894e]  py-24 rounded-xl ">
-                <h2 className="text-6xl font-bold text-green-500  py-8"> Spreading Kindness in the Cold</h2>
-                <p className="font-bold text-white text-xl mx-16 ,  py-6 rounded-2xl  ">Winter Warmth is a heartfelt initiative aimed at providing winter clothing to those in need across Bangladesh. By donating essentials like blankets and jackets, you can help vulnerable communities stay warm and safe during harsh winters. Together, let’s bring comfort, hope, and warmth to countless lives this season.</p>
+                <h2 className="lg:text-6xl md:text-3xl text-xl font-bold text-green-500 py-4  lg:py-8"> Spreading Kindness in the Cold</h2>
+                <p className="font-bold text-white lg:text-xl text-xs mx-16 ,  py-2 lg:py-8 rounded-2xl  ">"Winter Warmth is a mission to provide essential winter clothing to vulnerable communities in Bangladesh. Your donations of blankets and jackets bring comfort, safety, and hope during harsh winters. Join us today."</p>
 
                 <Link to={'donation'} className="btn btn-secondary px-12 font-bold">Donate Now </Link>
                 </div>

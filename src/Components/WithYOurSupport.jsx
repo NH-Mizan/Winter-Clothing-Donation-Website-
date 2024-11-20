@@ -5,7 +5,7 @@ const WithYOurSupport = () => {
         <div>
             <section className="bg-white w-11/12 py-12 mx-auto ">
                 <div className="container mx-auto text-center w-11/12 ">
-                    <div className="flex flex-col md:flex-row lg:flex-row lg:jstify-between gap-8 items-center ">
+                    <div className="flex flex-col md:flex-col lg:flex-row lg:jstify-between gap-8 items-center ">
                         <div className="">
                             <h2 className="text-5xl text-left py-8 font-bold text-primary ">
                             With Your Support, Everyone Can Enjoy A Warm Cloth

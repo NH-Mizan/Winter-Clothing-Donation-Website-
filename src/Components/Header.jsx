@@ -11,6 +11,8 @@ const Header = () => {
         <div className="bg-lime-300 stiky top-0">
             <div className="navbar w-11/12 mx-auto itrms-center flex ">
                 <div className="navbar-start">
+                   
+                    <img src="https://i.ibb.co.com/QKMf80s/images.png" alt="" className="lg:w-20 w-14 rounded-lg" />
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
@@ -43,7 +45,6 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-                    <img src="https://i.ibb.co.com/QKMf80s/images.png" alt="" className="w-20 rounded-lg" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex gap-4 text-xl font-bold">
@@ -65,15 +66,16 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     <div className="font-bold mr-4 "> {user && <div ><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
-                        {user.displayName}</div>} </div>
+                      </div>} </div>
                     {
                         user && user?.email ? (
-                            <button onClick={logOut} className="btn btn-neutral font-bold ">Log Out</button>
+                            <button onClick={logOut} className="btn btn-neutral font-bold  ">Log Out</button>
                         ) : (
                             <Link to={'/login'} className="btn btn-neutral font-bold ">Login</Link>
                         )
                     }
                 </div>
+              
             </div>
 
         </div>

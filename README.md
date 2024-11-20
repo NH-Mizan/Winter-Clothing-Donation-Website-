@@ -7,7 +7,7 @@ The **Winter Clothing Donation Website** simplifies the process of donating wint
 
 ## Live URL  
 [Visit the Live App](#)  
-*()*  
+*( https://winter-clothing-donation-cb722.web.app/)*  
 
 ## Features  
 - **User-Friendly Interface**: Easy navigation for donors and recipients.  
@@ -25,4 +25,4 @@ The **Winter Clothing Donation Website** simplifies the process of donating wint
 
 ### Clone the Repository  
 ```bash  
-git clone https://github.com/yourusername/winter-clothing-donation.git  
+git clone https://github.com/programming-hero-web-course1/b10-a9-authentication-NH-Mizan.git  
