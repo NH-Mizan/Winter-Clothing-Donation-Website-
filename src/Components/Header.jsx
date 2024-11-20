@@ -64,7 +64,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="font-bold mr-4 "> {user && <div ><img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                    <div className="font-bold mr-4 "> {user && <div ><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
                         {user.displayName}</div>} </div>
                     {
                         user && user?.email ? (

@@ -15,6 +15,8 @@ import ErrorPage from "../Components/ErrorPage.jsx";
 import HowToHelp from "../Components/HowToHelp.jsx";
 import DonateDetails from "../PrivatePages/DonateDetails.jsx";
 import PrivateRoute from "../PrivatePages/PrivateRoute.jsx";
+import UpdateProfile from "../Allpage/UpdateProfile.jsx";
+import ForgetPass from "../Allpage/ForgetPass.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <PrivateRoute> <Dashboard></Dashboard></PrivateRoute>
       },
+      {
+        path:'/updeteprofile',
+        element:<UpdateProfile></UpdateProfile>
+      },
+      {
+        path:'/forget',
+        element:<ForgetPass></ForgetPass>
+      }
 
     ]
   },

@@ -1,37 +1,113 @@
 import React, { useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import {  useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DonateDetails = () => {
-    useEffect(()=>{
-        document.title= 'Dashboard || Winter Warmth'
-    },[])
+    useEffect(() => {
+        document.title = 'Dashboard || Winter Warmth'
+    }, [])
     const singleData = useLoaderData()
-    const { division, status, description,contactInfo,  image, title } = singleData
+    const { division, status, description, contactInfo, image, title } = singleData
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        toast.success('Thank you! We will reach your destination soon.',);
+
+    }
     return (
         <div>
             <div className=' mx-auto w-11/12 '>
-                <div className="hero bg-base-200 p-12">
-                    <div className="bg-white p-8 rounded-xl ">
-                        <img
-                            src={image} className='w-full h-96 rounded-lg'/>
-                        <div className='py-12'> 
-                            <h1 className="text-5xl font-bold">{title}</h1>
-                            <p className="py-6 text-gary-200 text-xl ">
-                             {description}
+                <div
+                    className="hero py-12"
+                    style={{
+                        backgroundImage: "url(https://i.ibb.co.com/dBQJyTR/banner3.jpg)",
+                    }}>
+        
+
+                    <div className="hero-content  p-12 rounded-xl flex flex-col lg:flex-row md:flex-row gap-12 bg-lime-200 text-center">
+                        <div className=""><img src={image} alt="" className="rounded-lg h-80 w-80" /></div>
+                        <div className="max-w-md text-left">
+
+                            <p className="mb-5 flex gap-4 text-xl font-bold">
+                                {title}
                             </p>
-                            <div className="flex justify-between ">
-                            <p className='font-bold text-xl'>{division}</p>
-                            <p className='border-2 px-2 btn-info btn-outline rounded-full text-xl'>{status}</p>
-                            </div>
-                            <p className='font-bold py-8 '>{contactInfo}</p>
-                            <button className="btn btn-primary justify-end">Donate Now</button>
+                            <p className="mb-5 flex gap-4 text-xl font-bold">
+                                Division : {division}
+                            </p>
+                            <p className="mb-5 flex gap-4 text-xl font-bold">
+                                {description}</p>
+
+
+
                         </div>
                     </div>
                 </div>
 
+                {/* Donation Form */}
+                <div className="px-52 py-12 bg-green-100">
+                <form className="mt-8 " onSubmit={handleSubmit}>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Donation Form</h3>
+
+                    <div className="mb-4">
+                        <label htmlFor="quantity" className="block text-gray-700 font-medium mb-2">Quantity of Items</label>
+                        <input
+                            type="text"
+                            id="quantity"
+                            name="quantity"
+                          
+                 
+                            placeholder="e.g., 2 jackets, 3 blankets"
+                            className="w-full p-3 border border-gray-300 rounded-lg"
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="itemType" className="block text-gray-700 font-medium mb-2">Item Type</label>
+                        <select
+                            id="itemType"
+                            name="itemType"
+                 
+     
+                            className="w-full p-3 border border-gray-300 rounded-lg"
+                            required
+                        >
+                            <option value="">Select an item type</option>
+                            <option value="Blanket">Blanket</option>
+                            <option value="Jacket">Jacket</option>
+                            <option value="Sweater">Sweater</option>
+                        </select>
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="pickupLocation" className="block text-gray-700 font-medium mb-2">Pickup Location</label>
+                        <input
+                            type="text"
+                            id="pickupLocation"
+                            name="pickupLocation"
+                       
+             
+                            placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
+                            className="w-full p-3 border border-gray-300 rounded-lg"
+                            required
+                        />
+                    </div>
+
+                
+
+                    <button
+                        className="w-full bg-blue-500 text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition-colors"
+                    >
+                        Submit Donation
+                    </button>
+                </form>
+                </div>
             </div>
 
         </div>
+
+ 
     );
 };
 

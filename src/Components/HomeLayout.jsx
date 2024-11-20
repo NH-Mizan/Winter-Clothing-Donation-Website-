@@ -4,6 +4,9 @@ import Banner from "./Banner";
 import About from "./About";
 import HowToHelp from "./HowToHelp";
 import { useEffect } from "react";
+import HowtoWork from "./HowtoWork";
+import WhyYourHelpMatters from "./WhyYourHelpMatters";
+import WithYOurSupport from "./WithYOurSupport";
 
 
 
@@ -20,7 +23,9 @@ const HomeLayout = () => {
             <Banner></Banner>
             <Outlet></Outlet>
             <About></About>
-            <HowToHelp></HowToHelp>
+            <HowtoWork></HowtoWork>
+            <WithYOurSupport></WithYOurSupport>
+            <WhyYourHelpMatters></WhyYourHelpMatters>
 
 
         </div>
