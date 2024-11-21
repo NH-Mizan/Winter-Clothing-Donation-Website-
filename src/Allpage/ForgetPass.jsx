@@ -10,11 +10,12 @@ const ForgetPass = () => {
         e.preventDefault()
         const form = new FormData(e.target)
         const email = form.get("email")
-        toast.success('Thank you! Forgeting Your Password Please Check Email.',);
         forgetProvider(email)
         .then(()=>{
+            toast.success('Thank you! Forgeting Your Password Please Check Email.',);
 
                 // Password reset email sent!
+             window.location.href = 'https://mail.google.com/mail/u/0/#inbox' 
                 
         })
         .catch(error =>{

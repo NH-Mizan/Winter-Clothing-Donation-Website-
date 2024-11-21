@@ -23,6 +23,8 @@ The **Winter Clothing Donation Website** simplifies the process of donating wint
 
 ## Instructions  
 
-### Clone the Repository  
-```bash  
-git clone https://github.com/programming-hero-web-course1/b10-a9-authentication-NH-Mizan.git  
+### React pakage name:
+ 1. React Tostify
+ 2. Animation Css
+ 3. React Icon 
+ etc...

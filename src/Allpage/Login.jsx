@@ -31,11 +31,12 @@ const Login = () => {
             })
             .catch((erro) => {
                 setError({ ...error, login: erro.code })
+
             });
     }
     const handleGooleSinInBtn = () => {
         handleGooleSinIn()
-            .then((res) => {
+            .then(res => {
                 const user = (res.user)
                 setUser(user)
                 navigate(location?.state ? location.state : "/")
