@@ -36,8 +36,9 @@ const Login = () => {
     const handleGooleSinInBtn = () => {
         handleGooleSinIn()
             .then((res) => {
-                setUser(res.user)
-                navigate('/')
+                const user = (res.user)
+                setUser(user)
+                navigate(location?.state ? location.state : "/")
             })
 
     }
