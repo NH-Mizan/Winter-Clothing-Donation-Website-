@@ -37,6 +37,8 @@ const DonateDetails = () => {
                             </p>
                             <p className="mb-5 flex gap-4 text-xl font-bold">
                                 {description}</p>
+                            <p className="mb-5 flex gap-4 text-xl font-bold">
+                                {contactInfo}</p>
 
 
 
@@ -45,7 +47,7 @@ const DonateDetails = () => {
                 </div>
 
                 {/* Donation Form */}
-                <div className="px-52 py-12 bg-green-100">
+                <div className="w-11/122 mx-auto py-12 bg-green-100">
                 <form className="mt-8 " onSubmit={handleSubmit}>
                     <h3 className="text-2xl font-semibold mb-4 text-gray-800">Donation Form</h3>
 
