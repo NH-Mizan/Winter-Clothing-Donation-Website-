@@ -40,6 +40,9 @@ const Login = () => {
                 setUser(user)
                 navigate(location?.state ? location.state : "/")
             })
+            .catch((erro) => {
+                setError({ ...error, login: erro.code })
+            });
 
     }
 
