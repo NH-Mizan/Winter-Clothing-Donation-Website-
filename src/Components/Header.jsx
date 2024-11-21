@@ -65,10 +65,10 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="font-bold mr-4 "> {user && <div ><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
+                    <div className="font-bold mr-4 "> { <div ><img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
                       </div>} </div>
                     {
-                        user && user?.email ? (
+                         user?.email ? (
                             <button onClick={logOut} className="btn btn-neutral font-bold  ">Log Out</button>
                         ) : (
                             <Link to={'/login'} className="btn btn-neutral font-bold ">Login</Link>
