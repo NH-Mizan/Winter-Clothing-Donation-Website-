@@ -21,7 +21,7 @@ const HomeLayout = () => {
         <div>
 
             <Banner></Banner>
-            <Outlet></Outlet>
+        
             <About></About>
             <HowtoWork></HowtoWork>
             <WithYOurSupport></WithYOurSupport>

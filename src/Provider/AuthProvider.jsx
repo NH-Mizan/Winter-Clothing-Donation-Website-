@@ -12,16 +12,17 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loder, setLodar] = useState(true)
 
-
+// New user Register info 
     const createNewUser = (email, password) => {
         setLodar(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
-
+// Login user data Function
     const userLogin = (email, password) => {
         setLodar(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+// Update user data Function
     const updateUserDashboard = (updateData) => {
 
 
@@ -30,11 +31,12 @@ const AuthProvider = ({ children }) => {
 
 
     }
-
+// Log Out user Function 
     const logOut = () => {
         setLodar(true)
         return signOut(auth)
     }
+// Google Login / register user Function 
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -47,6 +49,7 @@ const AuthProvider = ({ children }) => {
             })
 
     }
+// Forget user Password Change Function
     const forgetProvider = (email) => {
 
       return  sendPasswordResetEmail(auth, email)
@@ -54,7 +57,7 @@ const AuthProvider = ({ children }) => {
     }
 
 
-
+// user data change to currentuser Show And change store data
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
